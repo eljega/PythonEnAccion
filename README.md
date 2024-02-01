@@ -29,11 +29,11 @@ Para comenzar, navega a la categoría de interés y lee el `README.md` correspon
 
 ## Cómo Contribuir
 
-¿Interesado en contribuir? ¡Toda colaboración es bienvenida! Si tienes un script que quieres compartir o mejoras para proponer, por favor lee nuestro [archivo de contribución](URL_CONTRIBUTING.md) para más información.
+¿Interesado en contribuir? ¡Toda colaboración es bienvenida! Si tienes un script que quieres compartir o mejoras para proponer, por favor lee nuestro [archivo de contribución](CONTRIBUTING.md) para más información.
 
 ## Licencia
 
-Este proyecto está bajo la [Licencia MIT](URL_LICENSE.md). ¡Utiliza y comparte los scripts libremente!
+Este proyecto está bajo la [Licencia MIT](LICENSE.md). ¡Utiliza y comparte los scripts libremente!
 
 ## Agradecimientos
 
