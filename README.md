@@ -1,6 +1,6 @@
 # PythonEnAccion
 
-![Banner](imagenes\banner.png)
+![Banner](imagenes/banner.png)
 
 ¡Bienvenidos a **PythonEnAccion**! Este repositorio es una colección exhaustiva de scripts en Python diseñados para hacer tu vida más fácil y productiva. Aquí encontrarás desde utilidades para automatización de tareas hasta soluciones para problemas complejos, todo en español.
 
@@ -43,7 +43,7 @@ A todos los que contribuyen, usan y aprenden con este proyecto, ¡gracias!
 
 ## Sobre Mí 🚀
 
-![Javier Perez](imagenes\foto_perfil.png)
+![Javier Perez](imagenes/foto_perfil.png)
 
 Hola, soy Javier Perez 👋
 
