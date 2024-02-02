@@ -51,7 +51,7 @@ Desarrollador de Software con pasión por Python, Django, Flask, C#, Docker, HTM
 
 - 🔭 Actualmente estoy trabajando como freelance y en proyectos personales.
 - 🌱 Constantemente aprendiendo sobre nuevas tecnologías y mejores prácticas.
-- 👯 Busco colaborar en proyectos interesantes y desafiantes.
+- 🤝 Busco colaborar en proyectos interesantes y desafiantes.
 - 💬 Pregúntame sobre Python, Django, Flask, C#, Docker, HTML, CSS, Unity, SQL, PostgreSQL, MySQL.
 - 📫 Cómo contactarme: [playgames.j.g17@gmail.com](mailto:playgames.j.g17@gmail.com)
 
