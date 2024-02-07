@@ -2,9 +2,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from reportlab.lib.pagesizes import letter
 from reportlab.lib import colors
-from reportlab.platypus import SimpleDocTemplate, Table, TableStyle
-from reportlab.platypus import Image
-
+from reportlab.platypus import SimpleDocTemplate, Table, TableStyle, Image
 
 """
 generador automatico de reportes en PDF
@@ -23,21 +21,19 @@ Instrucciones:
 3. ejecuta el script para generar el reporte en PDF.
 """
 
-csv_file_path = 'C:/Users/playg/Downloads/csv_archivos/pruebacsv.csv'  # Ruta al archivo CSV con los datos
-pdf_file_path = 'C:/Users/playg/Downloads/csv_archivos/mi_reporte.pdf'  # Ruta al archivo de reporte PDF generado
-datos = pd.read_csv(csv_file_path)
+csv_file = 'C:/Users/playg/Downloads/csv_archivos/pruebacsv.csv'  #escribe la ruta al archivo CSV con los datos
+pdf_file = 'C:/Users/playg/Downloads/csv_archivos/mi_reporte.pdf'  #escribe la ruta al archivo de reporte PDF generado
+datos = pd.read_csv(csv_file)
 
-# Generar una visualizacion simple
 plt.figure(figsize=(8, 6))
-datos['columna numerica'].hist()  # recuerda cambiar 'columna numerica' con el nombre de una columna numerica de tus datos
-plt.title('Distribución de columna numerica') #remplaza aqui tambien 'columna numerica'
+datos['columna numerica'].hist()  #recuerda cambiar 'columna numerica' con el nombre de una columna numerica de tus datos
+plt.title('columna numerica') #remplaza aqui tambien 'columna numerica'
 plt.xlabel('Valor')
 plt.ylabel('Frecuencia')
-plt.savefig('ruta/donde/guardaras/tu/archivo/histograma.png')#selecciona la ruta y 'opcional' cambia el nombre histograma
+plt.savefig('ruta donde guardaras el archivo + nombre de tu archivo.png')#selecciona la ruta y 'opcional' cambia el nombre histograma
 plt.close()
 
-# Crear un documento PDF y añadir los datos en una tabla
-doc = SimpleDocTemplate(pdf_file_path, pagesize=letter)
+doc = SimpleDocTemplate(pdf_file, pagesize=letter)
 elements = []
 data = [datos.columns.values.tolist()] + datos.values.tolist()
 
@@ -54,10 +50,9 @@ table.setStyle(TableStyle([
 ]))
 
 elements.append(table)
-
 # añadimos la imagen al pdf
-imagen_histograma = Image('ruta/donde/guardaras/tu/archivo/histograma.png', width=400, height=300)
+imagen_histograma = Image('C:/Users/playg/escritorio/trabajo/python/repo_github/histograma.png', width=400, height=300)
 elements.append(imagen_histograma)
 doc.build(elements)
 
-print(f'Reporte generado con éxito en: {pdf_file_path}')
+print(f'Reporte generado con exito en: {pdf_file}')
