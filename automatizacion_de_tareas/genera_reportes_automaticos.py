@@ -46,7 +46,7 @@ def generar_reporte(analisis_html):
     </head>
     <body>
         <h1>Analisis de Ventas</h1>
-        <p>A continuacion, se muestra un analisis basico de las ventas de productos:</p>
+        <p>este es un analisis basico de las ventas de productos:</p>
         {analisis_html}
         <p>Grafico de ventas:</p>
         <img src="ventas.png" alt="Grafico de Ventas">
