@@ -31,33 +31,32 @@ uso:
 # importamos las bibliotecas necesarias
 import os
 import tkinter as tk
-from tkinter import filedialog
-from tkinter import messagebox
+from tkinter import filedialog, messagebox
 from imageai.Classification import ImageClassification
 from googletrans import Translator
 from PIL import Image, ImageTk
 
 # inicializamos la clasificacion de imagen y carga el modelo
-def cargar_modelo():
+def load_model():
     execution_path = os.getcwd()
     prediction.setModelTypeAsResNet50()
     prediction.setModelPath(os.path.join(execution_path, "resnet50-19c8e357.pth"))
     prediction.loadModel()
 
 # funcion para seleccionar una imagen desde el sistema de archivos
-def seleccionar_imagen():
+def select_image():
     file_path = filedialog.askopenfilename()
     if file_path:
         predictions, probabilities = prediction.classifyImage(file_path, result_count=5)
-        imagen = Image.open(file_path)
-        imagen = imagen.resize((200, 200), Image.Resampling.LANCZOS)  # Modificado aqui
-        imagen_tk = ImageTk.PhotoImage(imagen)
-        panel_imagen.config(image=imagen_tk)
-        panel_imagen.image = imagen_tk
-        mostrar_predicciones(predictions, probabilities)
+        image = Image.open(file_path)
+        image = image.resize((200, 200), Image.Resampling.LANCZOS)  # Modificado aqui
+        image_tk = ImageTk.PhotoImage(image)
+        panel_image.config(image=image_tk)
+        panel_image.image = image_tk
+        show_predictions(predictions, probabilities)
 
 # muestra las predicciones en la interfaz grafica
-def mostrar_predicciones(predictions, probabilities):
+def show_predictions(predictions, probabilities):
     text = ""
     for eachPrediction, eachProbability in zip(predictions, probabilities):
         try:
@@ -66,34 +65,34 @@ def mostrar_predicciones(predictions, probabilities):
         except Exception as e:
             prediction_text = eachPrediction
         text += f"{prediction_text} : {eachProbability:.2f}%\n"
-    text_predicciones.config(text=text)
+    text_predictions.config(text=text)
 
 # configuramos de la interfaz grafica
-def configurar_gui():
+def configure_gui():
     window.title("clasificador de imagenes con Tkinter")
     window.geometry('400x400')
 
-    btn_cargar_imagen = tk.Button(window, text="Seleccionar imagen", command=seleccionar_imagen)
-    btn_cargar_imagen.pack()
+    btn_cargar_image = tk.Button(window, text="Seleccionar imagen", command=select_image)
+    btn_cargar_image.pack()
 
-    global panel_imagen
-    panel_imagen = tk.Label(window)
-    panel_imagen.pack()
+    global panel_image
+    panel_image = tk.Label(window)
+    panel_image.pack()
 
-    global text_predicciones
-    text_predicciones = tk.Label(window, text="", justify=tk.LEFT)
-    text_predicciones.pack()
+    global text_predictions
+    text_predictions = tk.Label(window, text="", justify=tk.LEFT)
+    text_predictions.pack()
 
 if __name__ == "__main__":
     prediction = ImageClassification()
     translator = Translator()
 
-    cargar_modelo()
+    load_model()
 
     window = tk.Tk()
-    panel_imagen = None
-    text_predicciones = None
+    panel_image = None
+    text_predictions = None
 
-    configurar_gui()
+    configure_gui()
     
     window.mainloop()
